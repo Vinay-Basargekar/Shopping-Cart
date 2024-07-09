@@ -4,7 +4,7 @@ import Footer from "./Footer";
 const Home = () => {
 	return (
 		<>
-			<div className="w-10/12 mx-auto py-10">
+			<div className="w-10/12 mx-auto py-10 mt-10">
 				<div className="flex justify-between items-center mb-16">
 					<div className="max-w-lg">
 						<h1 className="font-bold py-4 text-5xl text-gray-800">

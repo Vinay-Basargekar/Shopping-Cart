@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Shopping from "./components/Shopping";
+import Cart from "./components/Cart";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
@@ -11,7 +12,7 @@ const App = () => {
 	return (
 		<div>
 			<Navbar />
-			<Outlet/>
+			<Outlet />
 		</div>
 	);
 };
@@ -20,7 +21,7 @@ const Router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
-        errorElement:<ErrorPage/>,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				path: "/",
@@ -29,6 +30,10 @@ const Router = createBrowserRouter([
 			{
 				path: "/shop",
 				element: <Shopping />,
+			},
+			{
+				path: "/Cart",
+				element: <Cart />,
 			},
 		],
 	},

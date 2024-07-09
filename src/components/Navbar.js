@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import CartIcon from "../utils/cartIcon";
+import useStore from "../utils/useStore";
 
 const Navbar = () => {
+
+	const cartCount = useStore((state) => state.cart.length);
+
 	return (
-		<nav className="bg-gray-800 text-white">
-			<div className="flex w-10/12 justify-between items-center p-4 mx-auto">
+		<nav className="fixed top-0 left-0 right-0 bg-gray-800 text-white flex justify-between items-center shadow-md z-50">
+			<div className="flex w-10/12 justify-between items-center p-2 mx-auto">
 				<div className="w-16">
 					<Link to="/">
 						<img
@@ -26,6 +30,7 @@ const Navbar = () => {
 					<Link to="/contact" className="p-4 text-lg hover:text-gray-400">
 						Contact
 					</Link>
+
 					<input
 						type="text"
 						placeholder="Search..."
@@ -36,7 +41,16 @@ const Navbar = () => {
 					<Link to="/account" className="p-4 text-lg hover:text-gray-400">
 						Account
 					</Link>
-					<CartIcon />
+					<div className="relative">
+						{cartCount > 0 && (
+							<span className="absolute top-0 right-0 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+								{cartCount}
+							</span>
+						)}
+						<Link to="/Cart">
+							<CartIcon />
+						</Link>
+					</div>
 				</div>
 			</div>
 		</nav>

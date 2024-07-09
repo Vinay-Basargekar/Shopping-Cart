@@ -1,7 +1,12 @@
-const Product = ({ resData }) => {
-	const { image, title, category, price, rating } = resData;
+import useStore from "../utils/useStore";
+
+const Product = ({ product }) => {
+	const { image, title, category, price, rating } = product;
+
+	const addToCart = useStore((state) => state.addToCart);
+
 	return (
-		<div className="p-4 w-[350px] mb-4 border rounded-lg shadow-lg bg-white">
+		<div className="p-4 mt-4 w-[350px] mb-4 border rounded-lg shadow-lg bg-white">
 			<img
 				src={image}
 				alt={title}
@@ -17,7 +22,10 @@ const Product = ({ resData }) => {
 					</span>
 					<span className="text-gray-600">({rating.count} reviews)</span>
 				</div>
-				<button className="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded">
+				<button
+					onClick={() => addToCart(product)}
+					className="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded"
+				>
 					Add to Cart
 				</button>
 			</div>
