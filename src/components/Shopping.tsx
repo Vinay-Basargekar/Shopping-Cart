@@ -1,8 +1,22 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
 
-const Shopping = () => {
-	const [shopData, setShopData] = useState([]);
+export type ProductType = {
+	id: number;
+	name: string;
+	title: string;
+	price: number;
+	description: string;
+	category: string;
+	image: string;
+	rating: {
+		rate: number;
+		count: number;
+	};
+};
+
+const Shopping: React.FC = () => {
+	const [shopData, setShopData] = useState<ProductType[]>([]);
 
 	useEffect(() => {
 		fetchData();
@@ -10,7 +24,7 @@ const Shopping = () => {
 
 	const fetchData = async () => {
 		const response = await fetch("https://fakestoreapi.com/products");
-		const data = await response.json();
+		const data: ProductType[] = await response.json();
 		setShopData(data);
 		console.log(data);
 	};
