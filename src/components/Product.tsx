@@ -1,6 +1,11 @@
 import useStore from "../utils/useStore";
+import { ProductType } from "./Shopping";
 
-const Product = ({ product }) => {
+interface ProductProps {
+	product: ProductType;
+}
+
+const Product = ({ product }: ProductProps) => {
 	const { image, title, category, price, rating } = product;
 
 	const addToCart = useStore((state) => state.addToCart);

@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -39,6 +39,6 @@ const Router = createBrowserRouter([
 	},
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(<RouterProvider router={Router} />);
